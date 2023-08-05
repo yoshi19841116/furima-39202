@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## Users
+## users
 
 |Column              |Type  |Options                  |
 |------------------- | ---- | ----------------------- |
@@ -38,52 +38,52 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :products_users
-- has_many :purchases_users
-- has_many :Shipping_addresses_users
+- has_many :products
+- has_many :purchases
+- has_many :shipping_addresses
 
 
-## Products
+## products
 
 |Column                  |Type   |Options                       |
 |----------------------- | ----- | ---------------------------- |
 |product_name            |string |null: false                   |
 |description             |text   |null: false                   |
-|category_id             |integer|null: false, foreign_key: true|
-|condition_id            |integer|null: false, foreign_key: true|
-|shipping_fee_burden_id  |integer|null: false, foreign_key: true|
-|shipping_form_id        |integer|null: false, foreign_key: true|
-|days_to_ship_id         |integer|null: false, foreign_key: true|
+|category_id             |integer|null: false                   |
+|condition_id            |integer|null: false                   |
+|shipping_fee_burden_id  |integer|null: false                   |
+|shipping_form_id        |integer|null: false                   |
+|days_to_ship_id         |integer|null: false                   |
 |price                   |integer|null: false                   |
 
-## Categoriesテーブル (ActiveHash)
+## categoriesテーブル (active_hash)
 
   id	name
-  1	  Category A
-  2	  Category B
-  3	  Category C
+  1	  category A
+  2	  category B
+  3	  category C
   ...	 ...
 
-## Conditionsテーブル (ActiveHash)
+## conditionsテーブル (active_hash)
 
   id	name
-  1	  New
-  2	  Used
-  3	  Refurbished
+  1	  new
+  2	  used
+  3	  refurbished
   ...	  ...
 
-## ShippingFeeBurdenテーブル (ActiveHash)
+## shipping_fee_burdenテーブル (active_hash)
   id	name
-  1	  Buyer
-  2	  Seller
+  1	  buyer
+  2	  seller
   ...	  ...
-## ShippingFormテーブル (ActiveHash)
+## shipping_formテーブル (active_hash)
   id	name
-  1	  Mail
-  2	  Courier
+  1	  mail
+  2	  courier
   ...	  ...
 
-## DaysToShipテーブル (ActiveHash)
+## days_to_shipテーブル (active_hash)
   id	name
   1	  1 day
   2	  2 days
@@ -93,40 +93,38 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- belongs_to :product
-- belongs_to_active_hash :Categories
-- belongs_to_active_hash :Conditions
-- belongs_to_active_hash :ShippingFeeBurden
-- belongs_to_active_hash :ShippingForm
-- belongs_to_active_hash :DaysToShip
+- belongs_to :shipping_address
+- belongs_to_active_hash :categories
+- belongs_to_active_hash :conditions
+- belongs_to_active_hash :shipping_fee_burden
+- belongs_to_active_hash :shipping_form
+- belongs_to_active_hash :days_to_ship
 
 
-## Purchases
+## purchases
 
-|Column                    |Type    |Options                       |
-|------------------------- | ------ | ---------------------------- |
-|user_id                   |integer	|null: false, foreign_key: true|
-|product_id	               |integer	|null: false, foreign_key: true|
+|Column                    |Type        |Options                       |
+|------------------------- | ---------- | ---------------------------- |
+|user                      |references  |null: false, foreign_key: true|
+|product   	               |references	|null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
 
-## Shipping_addresses
+## shipping_addresses
 
-|Column               |Type     |Options                       |
-|-------------------- | ------- | ------------------------ |
-|user_id	            |integer	|null: false, foreign_key: true|
-|product_id	          |integer	|null: false, foreign_key: true|
-|postal_code          |string   |null: false                   |
-|prefecture_id        |integer	|null: false, foreign_key: true|
-|city                 |string   |null: false                   |
-|street               |string   |null: false                   |
-|building             |string   |                              |
-|phone_number         |string   |null: false                   |
+|Column               |Type       |Options                       |
+|-------------------- | ----------| -----------------------------|
+|postal_code          |string     |null: false                   |
+|prefecture_id        |integer  	|null: false                   |
+|city                 |string     |null: false                   |
+|street               |string     |null: false                   |
+|building             |string     |                              |
+|phone_number         |string     |null: false                   |
 
-## Prefecturesテーブル (ActiveHash)
+## prefecturesテーブル (active_hash)
 
   id	name
   1	  北海道
@@ -138,7 +136,7 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :product
-- belongs_to_active_hash :Prefectures
+- belongs_to_active_hash :prefectures
 
 
 
