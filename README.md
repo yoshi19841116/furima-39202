@@ -60,7 +60,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- belongs_to :purchases
+- has_one :purchase
 - belongs_to_active_hash :categories
 - belongs_to_active_hash :conditions
 - belongs_to_active_hash :shipping_fee_burden
@@ -68,7 +68,7 @@ Things you may want to cover:
 - belongs_to_active_hash :days_to_ship
 
 
-## purchases
+## purchase
 
 |Column                    |Type        |Options                       |
 |------------------------- | ---------- | ---------------------------- |
@@ -85,9 +85,9 @@ Things you may want to cover:
 
 |Column               |Type       |Options                       |
 |-------------------- | ----------| -----------------------------|
-|purchases            |references |null: false, foreign_key: true|
+|purchase             |references |null: false, foreign_key: true|
 |postal_code          |string     |null: false                   |
-|prefectures          |integer  	|null: false                   |
+|prefecture_id        |integer  	|null: false                   |
 |city                 |string     |null: false                   |
 |street               |string     |null: false                   |
 |building             |string     |                              |
@@ -97,8 +97,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :purchases
-- belongs_to_active_hash :prefectures
+- belongs_to :purchase
+- belongs_to_active_hash :prefecture_id
 
 
 
