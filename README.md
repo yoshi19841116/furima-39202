@@ -40,21 +40,21 @@ Things you may want to cover:
 
 - has_many :products
 - has_many :purchases
-- has_many :shipping_addresses
 
 
 ## products
 
-|Column                  |Type   |Options                       |
-|----------------------- | ----- | ---------------------------- |
-|product_name            |string |null: false                   |
-|description             |text   |null: false                   |
-|category_id             |integer|null: false                   |
-|condition_id            |integer|null: false                   |
-|shipping_fee_burden_id  |integer|null: false                   |
-|shipping_form_id        |integer|null: false                   |
-|days_to_ship_id         |integer|null: false                   |
-|price                   |integer|null: false                   |
+|Column                  |Type        |Options                       |
+|----------------------- | ---------- | ---------------------------- |
+|user                    |references  |null: false, foreign_key: true|
+|product_name            |string      |null: false                   |
+|description             |text        |null: false                   |
+|category_id             |integer     |null: false                   |
+|condition_id            |integer     |null: false                   |
+|shipping_fee_burden_id  |integer     |null: false                   |
+|shipping_form_id        |integer     |null: false                   |
+|day_to_ship_id          |integer     |null: false                   |
+|price                   |integer     |null: false                   |
 
 ## categoriesテーブル (active_hash)
 
@@ -93,7 +93,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- belongs_to :shipping_address
+- belongs_to :purchases
 - belongs_to_active_hash :categories
 - belongs_to_active_hash :conditions
 - belongs_to_active_hash :shipping_fee_burden
@@ -112,11 +112,13 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :product
+- belongs_to :shipping_addresses
 
 ## shipping_addresses
 
 |Column               |Type       |Options                       |
 |-------------------- | ----------| -----------------------------|
+|purchases            |references |null: false, foreign_key: true|
 |postal_code          |string     |null: false                   |
 |prefecture_id        |integer  	|null: false                   |
 |city                 |string     |null: false                   |
@@ -134,8 +136,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :user
-- belongs_to :product
+- belongs_to :purchases
 - belongs_to_active_hash :prefectures
 
 
