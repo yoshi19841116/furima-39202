@@ -56,39 +56,6 @@ Things you may want to cover:
 |day_to_ship_id          |integer     |null: false                   |
 |price                   |integer     |null: false                   |
 
-## categoriesテーブル (active_hash)
-
-  id	name
-  1	  category A
-  2	  category B
-  3	  category C
-  ...	 ...
-
-## conditionsテーブル (active_hash)
-
-  id	name
-  1	  new
-  2	  used
-  3	  refurbished
-  ...	  ...
-
-## shipping_fee_burdenテーブル (active_hash)
-  id	name
-  1	  buyer
-  2	  seller
-  ...	  ...
-## shipping_formテーブル (active_hash)
-  id	name
-  1	  mail
-  2	  courier
-  ...	  ...
-
-## days_to_shipテーブル (active_hash)
-  id	name
-  1	  1 day
-  2	  2 days
-  3	  3 days
-  ...	  ...
 
 ### Association
 
@@ -112,7 +79,7 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :product
-- belongs_to :shipping_addresses
+- has_one :shipping_addresses
 
 ## shipping_addresses
 
@@ -120,19 +87,13 @@ Things you may want to cover:
 |-------------------- | ----------| -----------------------------|
 |purchases            |references |null: false, foreign_key: true|
 |postal_code          |string     |null: false                   |
-|prefecture_id        |integer  	|null: false                   |
+|prefectures          |integer  	|null: false                   |
 |city                 |string     |null: false                   |
 |street               |string     |null: false                   |
 |building             |string     |                              |
 |phone_number         |string     |null: false                   |
 
-## prefecturesテーブル (active_hash)
 
-  id	name
-  1	  北海道
-  2	  青森県
-  3	  岩手県
-  ...	  ...
 
 ### Association
 
