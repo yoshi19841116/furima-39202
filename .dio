@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="WwNe2S3JQoJg_snmVfc9" name="ページ1">
-        <mxGraphModel dx="1541" dy="1385" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1065" dy="1502" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -89,24 +89,24 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="117" value="products(商品出品機能)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;shadow=1;html=1;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="552" y="-202" width="289" height="296" as="geometry"/>
+                    <mxGeometry x="550" y="-230" width="289" height="296" as="geometry"/>
                 </mxCell>
-                <mxCell id="119" value="・product_name (商品名)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;rounded=1;" parent="117" vertex="1">
+                <mxCell id="216" value="・user" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;align=left;fontColor=default;" vertex="1" parent="117">
                     <mxGeometry y="26" width="289" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="120" value="・description  (商品の説明)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;rounded=1;" parent="117" vertex="1">
+                <mxCell id="119" value="・product_name (商品名)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;rounded=1;" parent="117" vertex="1">
                     <mxGeometry y="56" width="289" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="145" value="・category_id（カテゴリー）&lt;br&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
+                <mxCell id="120" value="・description  (商品の説明)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;rounded=1;" parent="117" vertex="1">
                     <mxGeometry y="86" width="289" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="146" value="・condition_id （商品の状態）&lt;br&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
+                <mxCell id="145" value="・category_id（カテゴリー）&lt;br&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
                     <mxGeometry y="116" width="289" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="198" value="・&lt;span style=&quot;background-color: rgb(30, 30, 30); color: rgb(212, 212, 212); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;shipping_fee_burden_id（配送料の負担）&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
+                <mxCell id="146" value="・condition_id （商品の状態）&lt;br&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
                     <mxGeometry y="146" width="289" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="144" value="・&lt;span style=&quot;background-color: rgb(30, 30, 30); color: rgb(212, 212, 212); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;shipping_fee_burden_id（配送料の負担）&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
+                <mxCell id="198" value="・&lt;span style=&quot;background-color: rgb(30, 30, 30); color: rgb(212, 212, 212); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;shipping_fee_burden_id（配送料の負担）&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
                     <mxGeometry y="176" width="289" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="147" value="・&lt;span style=&quot;background-color: rgb(30, 30, 30); color: rgb(212, 212, 212); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;prefecture_id&lt;/span&gt;&lt;span style=&quot;background-color: rgb(30, 30, 30); color: rgb(212, 212, 212); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;（発送元の地域）&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;shadow=1;html=1;rounded=1;" parent="117" vertex="1">
