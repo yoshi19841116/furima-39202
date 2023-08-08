@@ -68,7 +68,7 @@ Things you may want to cover:
 - belongs_to_active_hash :days_to_ship
 
 
-## purchase
+## purchases
 
 |Column                    |Type        |Options                       |
 |------------------------- | ---------- | ---------------------------- |
