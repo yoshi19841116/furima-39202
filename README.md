@@ -61,8 +61,8 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_one :purchase
-- belongs_to_active_hash :categories
-- belongs_to_active_hash :conditions
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
 - belongs_to_active_hash :shipping_fee_burden
 - belongs_to_active_hash :shipping_form
 - belongs_to_active_hash :days_to_ship
@@ -98,7 +98,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :purchase
-- belongs_to_active_hash :prefecture_id
+- belongs_to_active_hash :prefecture
 
 
 
