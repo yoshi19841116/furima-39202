@@ -52,7 +52,7 @@ Things you may want to cover:
 |category_id             |integer     |null: false                   |
 |condition_id            |integer     |null: false                   |
 |shipping_fee_burden_id  |integer     |null: false                   |
-|shipping_form_id        |integer     |null: false                   |
+|prefecture_id           |integer     |null: false                   |
 |day_to_ship_id          |integer     |null: false                   |
 |price                   |integer     |null: false                   |
 
@@ -79,7 +79,7 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :product
-- has_one :shipping_addresses
+- has_one :shipping_address
 
 ## shipping_addresses
 
