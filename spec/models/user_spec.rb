@@ -6,9 +6,15 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザー新規登録' do
-    it 'nameが空では登録できない' do
-      @user.name = ''
-      @user.valid?
+    context 'ユーザーが正しく登録できること' do
+      it 'expect(@user).to be_valid' do
+      end
+    end
+  
+    context 'ユーザ登録ができない時' do
+      it 'nameが空では登録できない' do
+        @user.name = ''
+        @user.valid?
       expect(@user.errors.full_messages).to include("Name can't be blank")
     end
 
@@ -119,4 +125,5 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include()
     end
   end
+end
 end
