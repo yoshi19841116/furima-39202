@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :shipping_fee_burden_id, null: false
       t.integer :prefecture_id, null: false
       t.integer :day_to_ship_id, null: false
+      t.integer :price, null: false
       t.timestamps
     end
   end
