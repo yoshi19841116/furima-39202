@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]  ##showは詳細ページで実装かな？
+  before_action :authenticate_user!, except: [:index]  # #showは詳細ページで実装かな？
 
   def index
   end
@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id, :prefecture_id, :day_to_ship_id, :price, :image)
+    params.require(:product).permit(:product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id,
+                                    :prefecture_id, :day_to_ship_id, :price, :image)
   end
 end

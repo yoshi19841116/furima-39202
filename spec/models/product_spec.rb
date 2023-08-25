@@ -6,7 +6,6 @@ RSpec.describe Product, type: :model do
   end
 
   describe '商品出品' do
-    
     context '出品できる場合' do
       it '正しく情報が入力されていれば出品できること' do
         expect(@product).to be_valid
@@ -17,7 +16,7 @@ RSpec.describe Product, type: :model do
       it '商品画像が必須であること' do
         @product.image = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include()
+        expect(@product.errors.full_messages).to include
       end
 
       it '商品名が必須であること' do
@@ -29,7 +28,7 @@ RSpec.describe Product, type: :model do
       it '商品名が41字以上であれば保存できないこと' do
         @product.product_name = 'a' * 41
         @product.valid?
-        expect(@product.errors.full_messages).to include("Product name is too long (maximum is 40 characters)")
+        expect(@product.errors.full_messages).to include('Product name is too long (maximum is 40 characters)')
       end
 
       it '商品の説明が必須であること' do
@@ -41,7 +40,7 @@ RSpec.describe Product, type: :model do
       it '商品の説明が1001文字以上であれば保存できないこと' do
         @product.description = 'a' * 1001
         @product.valid?
-        expect(@product.errors.full_messages).to include("Description is too long (maximum is 1000 characters)")
+        expect(@product.errors.full_messages).to include('Description is too long (maximum is 1000 characters)')
       end
 
       it 'カテゴリーの情報が必須であること' do
@@ -137,21 +136,20 @@ RSpec.describe Product, type: :model do
       it '価格は¥300以上であること' do
         @product.price = 299
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@product.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
 
       it '価格は¥9,999,999以下であること' do
         @product.price = 10_000_000
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price must be less than or equal to 9999999")
+        expect(@product.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
 
       it '価格は半角数値のみ保存可能であること' do
         @product.price = '５００'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not a number")
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
     end
   end
 end
-

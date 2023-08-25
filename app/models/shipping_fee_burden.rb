@@ -7,5 +7,4 @@ class ShippingFeeBurden < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :products
-  
 end
