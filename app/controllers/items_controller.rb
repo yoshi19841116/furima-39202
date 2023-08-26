@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]  # #showは詳細ページで実装かな？
 
   def index
+    @products = Product.order(created_at: :desc)
   end
 
   def new
