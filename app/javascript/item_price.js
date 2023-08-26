@@ -9,8 +9,8 @@ window.addEventListener('load', () => {
     const tax = Math.floor(inputValue * 0.1);
     const profit = inputValue - tax;
 
-    addTaxDom.innerHTML = `販売手数料：${tax.toLocaleString()}円`;
-    addProfitDom.innerHTML = `利益：${Math.floor(profit).toLocaleString()}円`;
+    addTaxDom.innerHTML = `${tax.toLocaleString()}`;
+    addProfitDom.innerHTML = `${Math.floor(profit).toLocaleString()}`;
   });
 });
 
