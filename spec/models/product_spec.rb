@@ -159,7 +159,7 @@ RSpec.describe Product, type: :model do
       it 'userが紐付いていなければ出品できないこと' do
         @product.user = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include("User must exist")
+        expect(@product.errors.full_messages).to include('User must exist')
       end
     end
   end
