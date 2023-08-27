@@ -33,15 +33,15 @@ class ItemsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    if current_user != @product.user
-      redirect_to root_path, alert: "出品者以外は編集できません。"
-    end
+    return unless current_user != @product.user
+
+    redirect_to root_path, alert: '出品者以外は編集できません。'
   end
 
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to item_path(@product), notice: "商品情報が更新されました。"
+      redirect_to item_path(@product), notice: '商品情報が更新されました。'
     else
       render :edit
     end
