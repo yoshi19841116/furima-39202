@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_product, only: [:show, :edit, :update]
 
   def index
     @products = Product.order(created_at: :desc)
@@ -27,10 +28,27 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+  end
+
+  def edit
+    return unless current_user != @product.user
+
+    redirect_to root_path, alert: '出品者以外は編集できません。'
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to item_path(@product), notice: '商品情報が更新されました。'
+    else
+      render :edit
+    end
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id,
