@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.order(created_at: :desc)
@@ -41,6 +41,15 @@ class ItemsController < ApplicationController
       redirect_to item_path(@product), notice: '商品情報が更新されました。'
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if current_user == @product.user
+      @product.destroy
+      redirect_to root_path, notice: '商品が削除されました。'
+    else
+      redirect_to root_path, alert: '出品者以外は削除できません。'
     end
   end
 
