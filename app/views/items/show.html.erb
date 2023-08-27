@@ -28,7 +28,7 @@
     <%# 出品者の場合 %>
     <%= link_to "商品の編集", edit_item_path, class: "item-red-btn" %>
     <p class="or-text">or</p>
-    <%= link_to "削除", '#', class: "item-destroy" %>
+    <%= link_to "削除", item_path(@product), method: :delete, class: "item-destroy" %>
   <% else %>
     <%# 出品者でない場合 %>
     <% if #!@product.sold_out? %>
