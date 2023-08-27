@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_product, only: [:edit, :update]
+  before_action :set_product, only: [:show, :edit, :update]
 
   def index
     @products = Product.order(created_at: :desc)
@@ -28,18 +28,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
     return unless current_user != @product.user
 
     redirect_to root_path, alert: '出品者以外は編集できません。'
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to item_path(@product), notice: '商品情報が更新されました。'
     else
@@ -50,7 +47,7 @@ class ItemsController < ApplicationController
   private
 
   def set_product
-    product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def product_params
