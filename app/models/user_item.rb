@@ -1,6 +1,6 @@
 class UserItem
   include ActiveModel::Model
-  attr_accessor :name, :email, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth_date, :image, :product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id, :prefecture_id, :day_to_ship_id, :price, :postal_code, :prefecture_id, :city, :street, :building, :phone_number, :user_id, :product_id, :purchase_id
+  attr_accessor :token, :name, :email, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth_date, :image, :product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id, :prefecture_id, :day_to_ship_id, :price, :postal_code, :prefecture_id, :city, :street, :building, :phone_number, :user_id, :product_id, :purchase_id
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Enter it as follows (e.g. 123-4567)" }

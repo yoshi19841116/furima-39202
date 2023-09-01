@@ -14,6 +14,15 @@ class OrdersController < ApplicationController
     else
       render :index
     end
+
+    @order = Order.new(order_params)
+    if @order.valid?
+      @order.save
+      return redirect_to root_path
+    else
+      render 'index'
+    end
+
   end
 
   private
@@ -26,6 +35,11 @@ class OrdersController < ApplicationController
       :prefecture_id, :day_to_ship_id, :price
     ).merge(user_id: current_user.id, product_id: params[:item_id])
   end
+
+  def order_params
+    params.require(:order).permit(:price).merge(token: params[:token])
+  end
+  
 end
 
 
