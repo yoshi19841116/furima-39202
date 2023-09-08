@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe UserItem, type: :model do
   before do
-    @user_item = FactoryBot.build(:user_item)
+    user = FactoryBot.create(:user)
+    product = FactoryBot.create(:product)
+    @user_item = FactoryBot.build(:user_item, user_id: user.id, product_id: product.id)
   end
 
   context '正常な場合' do
