@@ -8,8 +8,8 @@ class OrdersController < ApplicationController
 
   def create
     @user_item = UserItem.new(purchase_params)
+    @product = Product.find(params[:item_id])
     if @user_item.valid?
-      @product = Product.find(params[:item_id])
         pay_item
         @user_item.save_with_purchase(current_user.id, params[:item_id])
         redirect_to root_path and return
