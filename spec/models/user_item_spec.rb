@@ -9,6 +9,11 @@ RSpec.describe UserItem, type: :model do
     it 'クレジットカード情報、配送先情報があれば保存できること' do
       expect(@user_item).to be_valid
     end
+
+    it '建物名の入力がなくても登録できること' do
+      @user_item.building = nil
+      expect(@user_item).to be_valid
+    end
   end
 
   context '異常な場合' do
@@ -70,6 +75,24 @@ RSpec.describe UserItem, type: :model do
       @user_item.phone_number = '0123456789'
       @user_item.valid?
       expect(@user_item.errors.full_messages).to include
+    end
+
+    it '電話番号が12桁以上では保存できないこと' do
+      @user_item.phone_number = '012345678901'
+      @user_item.valid?
+      expect(@user_item.errors.full_messages).to include("Phone number is too short")
+    end
+
+    it 'ユーザーのidが必須であること' do
+      @user_item.user_id = nil
+      @user_item.valid?
+      expect(@user_item.errors.full_messages).to include("User can't be blank")
+    end
+
+    it '商品のidが必須であること' do
+      @user_item.product_id = nil
+      @user_item.valid?
+      expect(@user_item.errors.full_messages).to include("Product can't be blank")
     end
   end
 end

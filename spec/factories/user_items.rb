@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :user_item do
-    product_id { 1 }
-    user_id { 1 }
     token { 'tok_abcdefghijk00000000000000000' }
     postal_code { "#{Faker::Number.between(from: 100, to: 999)}-#{Faker::Number.between(from: 1000, to: 9999)}" }
     prefecture_id { Faker::Number.between(from: 1, to: 47) }

@@ -1,14 +1,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :set_product, only: [:index]
+  before_action :set_product, only: [:index, :create]
 
   def index
-    @product = Product.find(params[:item_id])
     @user_item = UserItem.new
       if @product.user == current_user
         redirect_to root_path
       end
-      
+
       if @product.purchases.present?
         redirect_to root_path
       end
@@ -16,7 +15,6 @@ class OrdersController < ApplicationController
 
   def create
     @user_item = UserItem.new(purchase_params)
-    @product = Product.find(params[:item_id])
     if @user_item.valid?
       pay_item
       @user_item.save_with_purchase(current_user.id, params[:item_id])

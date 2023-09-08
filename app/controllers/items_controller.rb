@@ -29,7 +29,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @can_purchase = !@product.purchases.exists?(user_id: current_user.id)
+    if @product
+      @can_purchase = user_signed_in? && !@product.purchases.exists?(user_id: current_user.id)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def edit
@@ -68,7 +72,12 @@ class ItemsController < ApplicationController
 
   def item_purchase
     return unless @product.purchases.present?
-
     redirect_to root_path
+  end
+
+  def authenticate_user!
+    unless user_signed_in?
+      redirect_to new_user_session_path, alert: 'ログインが必要です'
+    end
   end
 end
