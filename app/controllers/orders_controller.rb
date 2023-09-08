@@ -1,12 +1,17 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
+  before_action :set_product, only: [:index]
 
   def index
     @product = Product.find(params[:item_id])
     @user_item = UserItem.new
-    return if @product.user == current_user && @product.purchases.empty?
-
-    redirect_to root_path, alert: 'この商品は購入できません。'
+      if @product.user == current_user
+        redirect_to root_path
+      end
+      
+      if @product.purchases.present?
+        redirect_to root_path
+      end
   end
 
   def create
@@ -37,5 +42,9 @@ class OrdersController < ApplicationController
       card: purchase_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_product
+    @product = Product.find(params[:item_id])
   end
 end
