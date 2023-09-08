@@ -4,6 +4,9 @@ class OrdersController < ApplicationController
   def index
     @product = Product.find(params[:item_id])
     @user_item = UserItem.new
+     unless @product.user == current_user && @product.purchases.empty?
+      redirect_to root_path, alert: 'この商品は購入できません。'
+    end
   end
 
   def create
