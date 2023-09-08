@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
   end
 
   def item_purchase
-    if @product.purchase.present?
+    if @product.purchases.present?
       redirect_to root_path
     end
   end
