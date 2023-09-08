@@ -27,7 +27,7 @@ RSpec.describe UserItem, type: :model do
     it '郵便番号が正しい形式でないと保存できないこと' do
       @user_item.postal_code = '1234567'
       @user_item.valid?
-      expect(@user_item.errors.full_messages).to include("Postal code is invalid. Enter it as follows (e.g. 123-4567)")
+      expect(@user_item.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
     end
 
     it '都道府県が必須であること' do
@@ -61,15 +61,15 @@ RSpec.describe UserItem, type: :model do
     end
 
     it '電話番号が正しい形式でないと保存できないこと' do
-      @user_item.phone_number = '090-1234-5678' 
+      @user_item.phone_number = '090-1234-5678'
       @user_item.valid?
-      expect(@user_item.errors.full_messages).to include("Phone number is too short", "Phone number Input only number")
+      expect(@user_item.errors.full_messages).to include('Phone number is too short', 'Phone number Input only number')
     end
-    
+
     it '電話番号が11桁未満では保存できないこと' do
-      @user_item.phone_number = '0123456789' 
+      @user_item.phone_number = '0123456789'
       @user_item.valid?
-      expect(@user_item.errors.full_messages).to include()
+      expect(@user_item.errors.full_messages).to include
     end
   end
 end

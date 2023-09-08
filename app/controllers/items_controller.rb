@@ -33,9 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user != @product.user
-      redirect_to root_path, alert: '出品者以外は編集できません。'
-    end
+    return unless current_user != @product.user
+
+    redirect_to root_path, alert: '出品者以外は編集できません。'
   end
 
   def update
@@ -67,8 +67,8 @@ class ItemsController < ApplicationController
   end
 
   def item_purchase
-    if @product.purchases.present?
-      redirect_to root_path
-    end
+    return unless @product.purchases.present?
+
+    redirect_to root_path
   end
 end
