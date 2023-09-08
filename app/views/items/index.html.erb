@@ -127,21 +127,20 @@
       新規投稿商品
     </div>
     <ul class='item-lists'>
-      <% @products.order(created_at: :desc).each do |product| %>
+      <% @products.each do |product| %>
         <li class='list'>
         <%= link_to item_path(product), method: :get do %>
         <div class='item-img-content'>
           <% if product.image.attached? %>
             <%= image_tag product.image, class: "item-img" %>
           <% else %>
-          <!-- 画像がアップロードされていない場合の表示 -->
             <p>No image available</p>
           <% end %>
-        <%# 商品が売れていればsold outを表示しましょう %>
-          <%#<div class='sold-out'>
+        <% if product.purchase.present? %>
+          <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
-          <%# //商品が売れていればsold outを表示しましょう %>
+        <% end %>
         </div>
         <div class='item-info'>
           <h3 class='item-name'>

@@ -1,8 +1,8 @@
 window.addEventListener('load', () => {
   const priceInput = document.getElementById("item-price");
+  // if (!priceInput) == null return nil
   const addTaxDom = document.getElementById("add-tax-price");
   const addProfitDom = document.getElementById("profit");
-
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
 
