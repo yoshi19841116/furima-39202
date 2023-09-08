@@ -30,12 +30,12 @@ class ItemsController < ApplicationController
 
   def show
     if @product
-      @can_purchase = user_signed_in? && !@product.purchases.exists?(user_id: current_user.id)
+      @can_purchase = user_signed_in? && @product.purchase.nil?
     else
       redirect_to new_user_session_path
     end
   end
-
+  
   def edit
     return unless current_user != @product.user
 
@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
   end
 
   def item_purchase
-    return unless @product.purchases.present?
+    return unless @product.purchase.present?
     redirect_to root_path
   end
 

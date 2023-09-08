@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
         redirect_to root_path
       end
 
-      if @product.purchases.present?
+      if @product.purchase.present?
         redirect_to root_path
       end
   end
