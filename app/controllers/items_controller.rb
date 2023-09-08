@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @can_purchase = !@product.purchases.exists?(user_id: current_user.id)
   end
 
   def edit
