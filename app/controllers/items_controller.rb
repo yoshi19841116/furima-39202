@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :item_purchase, only: :edit
 
   def index
     @products = Product.order(created_at: :desc)
@@ -31,9 +32,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return unless current_user != @product.user
-
-    redirect_to root_path, alert: '出品者以外は編集できません。'
+    if current_user != @product.user
+      redirect_to root_path, alert: '出品者以外は編集できません。'
+    end
   end
 
   def update
@@ -62,5 +63,11 @@ class ItemsController < ApplicationController
   def product_params
     params.require(:product).permit(:product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id,
                                     :prefecture_id, :day_to_ship_id, :price, :image)
+  end
+
+  def item_purchase
+    if @product.purchase.present?
+      redirect_to root_path
+    end
   end
 end
